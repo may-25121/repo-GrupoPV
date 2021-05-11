@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Compra {
 	private int id;
+	private static int poxIdDisponible = 1;
 	@Autowired
 	private Producto producto;
 	private int cantidad;
@@ -15,7 +16,8 @@ public class Compra {
 	}
 
 	public Compra(int id, Producto producto, int cantidad, double total) {
-		this.id = id;
+		this.id = poxIdDisponible;
+		poxIdDisponible++;
 		this.producto = producto;
 		this.cantidad = cantidad;
 		this.total = total;
@@ -27,6 +29,14 @@ public class Compra {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+		
+	public static int getPoxIdDisponible() {
+		return poxIdDisponible;
+	}
+
+	public static void setPoxIdDisponible(int poxIdDisponible) {
+		Compra.poxIdDisponible = poxIdDisponible;
 	}
 
 	public Producto getProducto() {
@@ -46,6 +56,7 @@ public class Compra {
 	}
 
 	public double getTotal() {
+		double total=this.producto.getPrecio()*this.cantidad;
 		return total;
 	}
 
