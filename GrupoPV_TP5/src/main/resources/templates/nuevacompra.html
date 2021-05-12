@@ -14,18 +14,28 @@
 				<div class="col-12">
 					<h2 class="text-center mb-5 text-uppercase">Formulario de Compra</h2>
 				</div>
-			<!--	<form class="col-sm-12 col-md-9 mb-3" th:action="@{/compra/guardar}" th:method="post" th:object="${compra}">-->
-				<form class="col-sm-12 col-md-9 mb-3">
+				<form class="col-sm-12 col-md-9 mb-3" th:action="@{/compra/guardar}" th:method="post" th:object="${compra}">
+			<!--	<form class="col-sm-12 col-md-9 mb-3"> -->
 					<div class="p-5 mx-3 border">
+					<div class="form-group row">
+							<label for="id" class="col-sm-4 col-form-label">ID</label>
+							<input type="number" id="id" class="form-control col-sm-8" th:field="${compra.id}" placeholder="Ingresar id de la compra" required>
+						
+						</div>	
 						<div class="form-group row">
 							<label for="codigoproducto"  class="col-sm-4 col-form-label">Producto</label>
-						<!--<input type="text" id="producto" class="form-control col-sm-8" th:field="${compra.producto.nombre}" placeholder="Ingresar nombre y apellido" required>-->
-						<input type="text" id="nombreproducto" class="form-control col-sm-8" placeholder="Ingresar nombre del producto" required>				
+						<input type="text" id="producto" class="form-control col-sm-8" th:field="${compra.producto.nombre}" placeholder="Ingresar nombre y apellido" required>
+										
 						</div>
 						<div class="form-group row">
 							<label for="cantidad" class="col-sm-4 col-form-label">Cantidad</label>
-							<!--<input type="number" id="cantidad" class="form-control col-sm-8" th:field="${compra.cantidad}" placeholder="Ingresar cantidad" required>-->
-						<input type="number" id="cantidad" class="form-control col-sm-8" placeholder="Ingresar cantidad" required>
+							<input type="number" id="cantidad" class="form-control col-sm-8" th:field="${compra.cantidad}" placeholder="Ingresar cantidad" required>
+						
+						</div>	
+						<div class="form-group row">
+							<label for="total" class="col-sm-4 col-form-label">Total</label>
+							<input type="number" id="total" class="form-control col-sm-8" th:field="${compra.total}" placeholder="Ingresar cantidad" required>
+						
 						</div>	
 						<div class="d-flex justify-content-center mt-4">
 				 			<button type="submit" class="btn btn-primary text-center" value="Guardar">Guardar</button>
