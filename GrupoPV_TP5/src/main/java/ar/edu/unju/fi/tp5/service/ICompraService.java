@@ -7,10 +7,14 @@ import java.util.List;
 import ar.edu.unju.fi.tp5.model.Compra;
 
 public interface ICompraService {
-public void  guardarCompra(Compra compra);
-
-  public List<Compra> obtenerCompras();
+public Compra getCompra();
+	
+	public void  agregarCompra(Compra compra);
   
-  public void generarListCompras();
+  	public Compra obtenerUltomaCompra();
+  	
+  	public List<Compra> obtenerCompras();
+
+	
 
 }
