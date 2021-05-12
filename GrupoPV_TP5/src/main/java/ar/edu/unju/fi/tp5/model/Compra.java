@@ -54,9 +54,13 @@ public class Compra {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-
+/*
 	public double getTotal() {
 		double total=this.producto.getPrecio()*this.cantidad;
+		return total;
+	}*/
+	
+	public double getTotal() {
 		return total;
 	}
 

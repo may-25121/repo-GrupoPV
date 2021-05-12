@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tp5.model.Compra;
 import ar.edu.unju.fi.tp5.service.ICompraService;
-import ar.edu.unju.fi.tp5.util.TablaCompra;
 
 
 @Service("compraUtilService")
