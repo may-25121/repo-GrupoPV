@@ -15,12 +15,12 @@ public class Compra {
 	public Compra() {
 	}
 
-	public Compra(int id, Producto producto, int cantidad, double total) {
+	public Compra(Producto producto, int cantidad) {
 		this.id = poxIdDisponible;
 		poxIdDisponible++;
 		this.producto = producto;
 		this.cantidad = cantidad;
-		this.total = total;
+		this.total = getTotal();
 	}
 
 	public int getId() {
@@ -54,16 +54,12 @@ public class Compra {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-/*
+
 	public double getTotal() {
 		double total=this.producto.getPrecio()*this.cantidad;
 		return total;
-	}*/
-	
-	public double getTotal() {
-		return total;
 	}
-
+	
 	public void setTotal(double total) {
 		this.total = total;
 	}

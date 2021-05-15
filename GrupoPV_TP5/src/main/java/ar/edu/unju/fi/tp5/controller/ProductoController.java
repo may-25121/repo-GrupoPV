@@ -19,6 +19,9 @@ public class ProductoController {
 	private static final Log LOGGER = LogFactory.getLog(ProductoController.class);
 	
 	@Autowired
+	private Producto producto;
+	
+	@Autowired
 	private IProductoService productoService;
 	
 	@GetMapping("/producto")
@@ -26,7 +29,7 @@ public class ProductoController {
 		LOGGER.info("CONTROLLER: ProductoController con /producto invoca al metodo get");
 		LOGGER.info("METHOD: getProductoPage()");
 		LOGGER.info("RESULT: Se visualiza la página nuevo.html");
-		model.addAttribute("producto", productoService.getProducto());
+		model.addAttribute("producto", producto);
 		return ("nuevo");
 	}
 	

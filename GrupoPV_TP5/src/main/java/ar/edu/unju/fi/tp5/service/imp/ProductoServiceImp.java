@@ -42,12 +42,11 @@ public class ProductoServiceImp implements IProductoService{
 	@Override
 	public Producto getUltimoProducto() {
 		int indiceUltimoProducto=productos.size() - 1;
-		Producto producto=null;
-		if(indiceUltimoProducto>=0) {
-			producto=productos.get(indiceUltimoProducto);
+		if(indiceUltimoProducto<0) {
+			Producto producto = new Producto (796,"Cafe",229,"La Virginia",123);
+			addProducto(producto);			
 		}else {
-			producto= new Producto (796,"Cafe",229,"La Virginia",123);
-			addProducto(producto);	
+			producto=productos.get(indiceUltimoProducto);	
 		}
 		LOGGER.info("SERVICE: IProductoService -> ProductoServiceImp");
 		LOGGER.info("METHOD: getUltimoProducto()");
@@ -60,7 +59,24 @@ public class ProductoServiceImp implements IProductoService{
 		LOGGER.info("SERVICE: IProductoService -> ProductoServiceImp");
 		LOGGER.info("METHOD: getAllProductos()");
 		LOGGER.info("RESULT: devuelve una lista de los productos agregados");
+		if(this.productos.size()==0) {
+			this.addProducto(producto=new Producto(796,"Cafe",229,"La Virginia",123)); 
+		}
 		return this.productos;
+	}
+
+	@Override
+	public Producto searchProducto(int codigo) {
+		LOGGER.info("SERVICE: IProductoService -> ProductoServiceImp");
+		LOGGER.info("METHOD: searchProducto(codigo)");
+		LOGGER.info("RESULT: devuelve el producto buscado mediante su codigo enviado por parametro");
+		Producto prod = new Producto();
+		for(Producto producto : this.productos) {
+			if(producto.getCodigo() == codigo) {
+				prod = producto;
+			}
+		}
+		return prod;
 	}
 
 }

@@ -17,7 +17,6 @@ import ar.edu.unju.fi.tp5.service.ICompraService;
 @Service("compraUtilService")
 public class CompraServiceImp implements ICompraService {
 
-
 	@Autowired
 	private Compra compra;
 	
@@ -32,7 +31,6 @@ public Compra getCompra() {
 	LOGGER.info("SERVICE: ICompraService -> CompraServiceImp");
 	LOGGER.info("METHOD: getCompra()");
 	LOGGER.info("RESULT: devuelve un objeto compra");
-	
 	return this.compra;
 }
 
@@ -42,9 +40,9 @@ public void agregarCompra(Compra compra) {
 	LOGGER.info("METHOD: agregarCompra()");
 	LOGGER.info("RESULT: agrega un objeto compra a la lista");
 	this.compras.add(compra);
-	
 }
 
+/*
 @Override
 public Compra obtenerUltomaCompra() {
 	int indiceUltimaCompra=compras.size() - 1;
@@ -59,7 +57,7 @@ public Compra obtenerUltomaCompra() {
 	LOGGER.info("METHOD: getUltimaCompra()");
 	LOGGER.info("RESULT: devuelve la ultima compra a la lista");
 	return compra;
-}
+}*/
 
 @Override
 public List<Compra> obtenerCompras() {
