@@ -46,16 +46,6 @@ public class CompraController {
 		return "resultado02";
 	}
 	
-	/*
-	@PostMapping("/compra/guardar")
-	public String getCompraResultadoPage(@ModelAttribute("compra") Compra compra) {
-		LOGGER.info("CONTROLLER: CompraController con /compra/guardar invoca al metodo post");
-		LOGGER.info("METHOD: getCompraResultadoPage() -- PARAMS: compra'"+compra+"'");
-		LOGGER.info("RESULT: Se visualiza la página resultado02.html mostrando el formulario de compras");
-		compraService.agregarCompra(compra);
-		return "resultado02";
-	}*/
-	
 	@GetMapping("/compra/listar")
 	public String getListarCompraPage(Model model) {
 		LOGGER.info("CONTROLLER: CompraController con /compra/listar invoca al metodo get");

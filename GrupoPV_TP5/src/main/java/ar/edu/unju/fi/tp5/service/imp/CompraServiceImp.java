@@ -42,23 +42,6 @@ public void agregarCompra(Compra compra) {
 	this.compras.add(compra);
 }
 
-/*
-@Override
-public Compra obtenerUltomaCompra() {
-	int indiceUltimaCompra=compras.size() - 1;
-	Compra compra=null;
-	if(indiceUltimaCompra>=0) {
-		compra=compras.get(indiceUltimaCompra);
-	}else {
-		compra = new Compra(123, null, 250, 100);
-		agregarCompra(compra);
-	}
-	LOGGER.info("SERVICE: ICompraService -> CompraServiceImp");
-	LOGGER.info("METHOD: getUltimaCompra()");
-	LOGGER.info("RESULT: devuelve la ultima compra a la lista");
-	return compra;
-}*/
-
 @Override
 public List<Compra> obtenerCompras() {
 	LOGGER.info("SERVICE: ICompraService -> CompraServiceImp");
