@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ar.edu.unju.fi.tp5.model.Compra;
 import ar.edu.unju.fi.tp5.service.ICompraService;
+import ar.edu.unju.fi.tp5.service.IProductoService;
 
 @Controller
 public class CompraController {
@@ -19,6 +19,9 @@ public class CompraController {
 	
 	@Autowired
 	private ICompraService compraService;
+	
+	@Autowired
+	private IProductoService productoService;
 
 	@GetMapping("/compra")
 	public String getCompraPage(Model model) {
@@ -26,9 +29,23 @@ public class CompraController {
 		LOGGER.info("METHOD: getCompraPage()");
 		LOGGER.info("RESULT: Se visualiza la página nuevacompra.html");
 		model.addAttribute("compra", compraService.getCompra());
+		model.addAttribute("productos", productoService.getAllProductos());
 		return "nuevacompra";
 	}
 	
+	@GetMapping("/compra/guardar")
+	public String getgetCompraResultadoPage(Model model, @RequestParam(name="codigo") String codigo, @RequestParam(name="cantidad") String cantidad) {
+		LOGGER.info("CONTROLLER: CompraController con /compra/guardar invoca al metodo Get");
+		LOGGER.info("METHOD: getCompraResultadoPage() -- PARAMS: compra '"+codigo+"' codigo '"+cantidad);
+		LOGGER.info("RESULT: Se visualiza la página resultado02.html mostrando un mensaje que certifica que los datos de la compra se guado correctamente");		
+		Compra compra=new Compra();
+		compra.setCantidad(Integer.valueOf(cantidad));
+		compra.setProducto(this.productoService.searchProducto(Integer.valueOf(codigo)));
+		compraService.agregarCompra(compra);
+		return "resultado02";
+	}
+	
+	/*
 	@PostMapping("/compra/guardar")
 	public String getCompraResultadoPage(@ModelAttribute("compra") Compra compra) {
 		LOGGER.info("CONTROLLER: CompraController con /compra/guardar invoca al metodo post");
@@ -36,9 +53,7 @@ public class CompraController {
 		LOGGER.info("RESULT: Se visualiza la página resultado02.html mostrando el formulario de compras");
 		compraService.agregarCompra(compra);
 		return "resultado02";
-	}
-	
-	
+	}*/
 	
 	@GetMapping("/compra/listar")
 	public String getListarCompraPage(Model model) {

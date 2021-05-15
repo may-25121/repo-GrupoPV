@@ -12,9 +12,10 @@ public interface IProductoService {
 	
 	public void addProducto(Producto producto);
 	
-	
 	public Producto getUltimoProducto();
 	
 	public List<Producto> getAllProductos();
+	
+	public Producto searchProducto(int codigo);
 	
 }
