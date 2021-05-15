@@ -39,6 +39,7 @@ public class CompraController {
 		LOGGER.info("METHOD: getCompraResultadoPage() -- PARAMS: compra '"+codigo+"' codigo '"+cantidad);
 		LOGGER.info("RESULT: Se visualiza la página resultado02.html mostrando un mensaje que certifica que los datos de la compra se guado correctamente");		
 		Compra compra=new Compra();
+		compra.setId(this.compraService.obtenerCompras().size()+1);
 		compra.setCantidad(Integer.valueOf(cantidad));
 		compra.setProducto(this.productoService.searchProducto(Integer.valueOf(codigo)));
 		compraService.agregarCompra(compra);
